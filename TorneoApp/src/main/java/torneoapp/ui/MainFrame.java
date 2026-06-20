@@ -101,20 +101,7 @@ public class MainFrame extends JFrame {
         torneioNameLbl.setText(tnome);
         right.add(torneioNameLbl);
 
-        // Change torneio link
-        JButton changeTorneio = new JButton("↩ Sair");
-        changeTorneio.setFont(new Font("SansSerif", Font.PLAIN, 12));
-        changeTorneio.setForeground(new Color(160, 180, 220));
-        changeTorneio.setBorderPainted(false);
-        changeTorneio.setContentAreaFilled(false);
-        changeTorneio.setFocusPainted(false);
-        changeTorneio.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        changeTorneio.addActionListener(e -> {
-            dispose();
-            SwingUtilities.invokeLater(() -> new WelcomeScreen().setVisible(true));
-        });
-        right.add(changeTorneio);
-        h.add(right, BorderLayout.EAST);
+
         return h;
     }
 
