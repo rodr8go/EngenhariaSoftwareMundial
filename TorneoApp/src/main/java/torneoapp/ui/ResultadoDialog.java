@@ -58,8 +58,8 @@ public class ResultadoDialog extends JDialog {
 
         if (jogo.getDataHora() == null) {
             JOptionPane.showMessageDialog(parent,
-                "Apenas é possível registar dados de eventos já ocorridos e calendarizados.",
-                "Erro", JOptionPane.ERROR_MESSAGE);
+                    "Apenas é possível registar dados de eventos já ocorridos e calendarizados.",
+                    "Erro", JOptionPane.ERROR_MESSAGE);
             dispose(); return;
         }
 
@@ -150,8 +150,8 @@ public class ResultadoDialog extends JDialog {
         JPanel bottom = new JPanel(new BorderLayout(12, 0));
         bottom.setBackground(UITheme.CONTENT_BG);
         bottom.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(220, 225, 240)),
-            BorderFactory.createEmptyBorder(10, 20, 10, 20)));
+                BorderFactory.createMatteBorder(1, 0, 0, 0, new Color(220, 225, 240)),
+                BorderFactory.createEmptyBorder(10, 20, 10, 20)));
 
         cancelBtn = UITheme.grayButton("Cancelar");
         cancelBtn.addActionListener(e -> dispose());
@@ -174,9 +174,9 @@ public class ResultadoDialog extends JDialog {
     //  EVENTO TAB (reused for normal goals, assists, cards AND prolongamento)
     // ═══════════════════════════════════════════════════════════════════
     private JPanel buildEventoTab(String tipo, String nomeCasa, String nomeVisit,
-            List<Jogador> jogCasa, List<Jogador> jogVisit,
-            DefaultListModel<String> casaModel, DefaultListModel<String> visitModel,
-            boolean updatesScore) {
+                                  List<Jogador> jogCasa, List<Jogador> jogVisit,
+                                  DefaultListModel<String> casaModel, DefaultListModel<String> visitModel,
+                                  boolean updatesScore) {
         boolean isGolo = "Golo".equals(tipo);
         JPanel p = new JPanel(new GridLayout(1, 2, 12, 0));
         p.setBackground(UITheme.CONTENT_BG);
@@ -188,14 +188,14 @@ public class ResultadoDialog extends JDialog {
     }
 
     private JPanel buildEquipaPanel(String tipo, String nomeEquipa,
-            List<Jogador> jogadores, DefaultListModel<String> model,
-            DefaultListModel<String> opposingModel,
-            Color teamColor, boolean updatesScore) {
+                                    List<Jogador> jogadores, DefaultListModel<String> model,
+                                    DefaultListModel<String> opposingModel,
+                                    Color teamColor, boolean updatesScore) {
         JPanel p = new JPanel(new BorderLayout(0, 8));
         p.setBackground(UITheme.CARD_BG);
         p.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(new Color(220, 225, 240)),
-            BorderFactory.createEmptyBorder(10, 12, 10, 12)));
+                BorderFactory.createLineBorder(new Color(220, 225, 240)),
+                BorderFactory.createEmptyBorder(10, 12, 10, 12)));
 
         JLabel header = new JLabel(nomeEquipa, SwingConstants.CENTER);
         header.setFont(new Font("SansSerif", Font.BOLD, 14));
@@ -278,7 +278,7 @@ public class ResultadoDialog extends JDialog {
         g.insets = new Insets(10, 10, 10, 10); g.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel info = new JLabel("<html><center>Introduza o resultado da série de penaltis.<br>"
-            + "Apenas o número de penaltis convertidos por cada equipa.</center></html>", SwingConstants.CENTER);
+                + "Apenas o número de penaltis convertidos por cada equipa.</center></html>", SwingConstants.CENTER);
         info.setFont(new Font("SansSerif", Font.ITALIC, 12));
         info.setForeground(UITheme.TEXT_SECONDARY);
         g.gridx=0; g.gridy=0; g.gridwidth=3; p.add(info, g); g.gridwidth=1;
@@ -475,8 +475,8 @@ public class ResultadoDialog extends JDialog {
         if (isEliminacao && gc == gv) {
             // Empate → prolongamento
             JOptionPane.showMessageDialog(this,
-                "⏱ Empate (" + gc + "–" + gv + ") ao fim do tempo normal!\n\nA seguir para o Prolongamento (90'–120').",
-                "Empate — Prolongamento", JOptionPane.INFORMATION_MESSAGE);
+                    "⏱ Empate (" + gc + "–" + gv + ") ao fim do tempo normal!\n\nA seguir para o Prolongamento (90'–120').",
+                    "Empate — Prolongamento", JOptionPane.INFORMATION_MESSAGE);
             fase = "prolongamento";
             jogo.setFoiProlongamento(true);
             updatePhaseUI();
@@ -494,8 +494,8 @@ public class ResultadoDialog extends JDialog {
         if (gc == gv) {
             // Ainda empatado → penaltis
             JOptionPane.showMessageDialog(this,
-                "🥅 Ainda empatado (" + gc + "–" + gv + ") ao fim do prolongamento!\n\nA seguir para os Penaltis.",
-                "Empate — Penaltis", JOptionPane.INFORMATION_MESSAGE);
+                    "🥅 Ainda empatado (" + gc + "–" + gv + ") ao fim do prolongamento!\n\nA seguir para os Penaltis.",
+                    "Empate — Penaltis", JOptionPane.INFORMATION_MESSAGE);
             fase = "penaltis";
             jogo.setFoiPenaltis(true);
             updatePhaseUI();
@@ -513,8 +513,8 @@ public class ResultadoDialog extends JDialog {
             int penC = safeInt(penCasaF), penV = safeInt(penVisitF);
             if (penC == penV) {
                 JOptionPane.showMessageDialog(this,
-                    "O resultado dos penaltis não pode ser empate.\nVerifique o tab 🥅 Penaltis.",
-                    "Penaltis inválidos", JOptionPane.WARNING_MESSAGE);
+                        "O resultado dos penaltis não pode ser empate.\nVerifique o tab 🥅 Penaltis.",
+                        "Penaltis inválidos", JOptionPane.WARNING_MESSAGE);
                 return;
             }
         }
@@ -525,8 +525,8 @@ public class ResultadoDialog extends JDialog {
         try { posseV = Double.parseDouble(posseVisitF.getText().trim()); } catch (Exception ignored) {}
         if (posseC <= 0 && posseV <= 0) {
             JOptionPane.showMessageDialog(this,
-                "A posse de bola é obrigatória para terminar o jogo.\nPreencha os valores no separador Estat\u00edsticas.",
-                "Posse de bola obrigatória", JOptionPane.WARNING_MESSAGE);
+                    "A posse de bola é obrigatória para terminar o jogo.\nPreencha os valores no separador Estat\u00edsticas.",
+                    "Posse de bola obrigatória", JOptionPane.WARNING_MESSAGE);
             return;
         }
 
@@ -573,8 +573,8 @@ public class ResultadoDialog extends JDialog {
             String novaRonda = dsPost.verificarEAvancarEliminacao(torneioPost);
             if (novaRonda != null) {
                 JOptionPane.showMessageDialog(this,
-                    "Ronda concluída! Os jogos dos " + novaRonda + " foram gerados automaticamente.",
-                    "Nova Ronda", JOptionPane.INFORMATION_MESSAGE);
+                        "Ronda concluída! Os jogos dos " + novaRonda + " foram gerados automaticamente.",
+                        "Nova Ronda", JOptionPane.INFORMATION_MESSAGE);
             }
         } else if (torneioPost != null && torneioPost.faseGruposCompleta()) {
             boolean temElim = torneioPost.getJogos().stream().anyMatch(j -> "eliminacao".equals(j.getFase()));
@@ -582,8 +582,8 @@ public class ResultadoDialog extends JDialog {
                 try {
                     dsPost.gerarFaseEliminacao(torneioPost);
                     JOptionPane.showMessageDialog(this,
-                        "Fase de grupos concluída! Os jogos da eliminação foram gerados automaticamente.",
-                        "Eliminatórias Geradas", JOptionPane.INFORMATION_MESSAGE);
+                            "Fase de grupos concluída! Os jogos da eliminação foram gerados automaticamente.",
+                            "Eliminatórias Geradas", JOptionPane.INFORMATION_MESSAGE);
                 } catch (Exception ex) { /* silent */ }
             }
         }
@@ -600,17 +600,23 @@ public class ResultadoDialog extends JDialog {
         // Split events: goals in prol time have minuto > 90
         for (EventoJogo ev : jogo.getEventos()) {
             if (!(ev instanceof EventoPessoal ep)) continue;
+            boolean isAutoGolo = ep.getDescricao() != null && ep.getDescricao().contains("(AG)");
             String entry = ep.getMinuto() + "' — " +
-                (ep.getJogador() != null ? ep.getJogador().getNumeroCamisola() + " · " + ep.getJogador() : "?");
-            boolean isCasa = ep.getJogador() != null && ep.getJogador().getEquipa() == jogo.getEquipaCasa();
+                    (ep.getJogador() != null ? ep.getJogador().getNumeroCamisola() + " · " + ep.getJogador() : "?")
+                    + (isAutoGolo ? " (AG)" : "");
+            // isCasa: o jogador pertence à equipa casa?
+            boolean jogadorECasa = ep.getJogador() != null && ep.getJogador().getEquipa() == jogo.getEquipaCasa();
+            // Para auto-golo o golo conta para a equipa adversária ao jogador
+            boolean goloParaCasa = isAutoGolo ? !jogadorECasa : jogadorECasa;
             switch (ep.getTipoEvento()) {
                 case "Golo" -> {
-                    if (ep.getMinuto() > 90) (isCasa ? prolCasaModel : prolVisitModel).addElement(entry);
-                    else                     (isCasa ? golosCasaModel : golosVisitModel).addElement(entry);
+                    if (ep.getMinuto() > 90) (goloParaCasa ? prolCasaModel : prolVisitModel).addElement(entry);
+                    else                     (goloParaCasa ? golosCasaModel : golosVisitModel).addElement(entry);
                 }
-                case "Assistência" -> (isCasa ? assistCasaModel : assistVisitModel).addElement(entry);
-                case "Amarelo"     -> (isCasa ? amarCasaModel   : amarVisitModel).addElement(entry);
-                case "Vermelho"    -> (isCasa ? vermCasaModel   : vermVisitModel).addElement(entry);
+                // Assistências, cartões — sempre pela equipa real do jogador
+                case "Assistência" -> (jogadorECasa ? assistCasaModel : assistVisitModel).addElement(entry);
+                case "Amarelo"     -> (jogadorECasa ? amarCasaModel   : amarVisitModel).addElement(entry);
+                case "Vermelho"    -> (jogadorECasa ? vermCasaModel   : vermVisitModel).addElement(entry);
             }
         }
         if (posseCasaF  != null) posseCasaF.setText(String.valueOf((int)jogo.getPosseCasa()));
@@ -627,16 +633,33 @@ public class ResultadoDialog extends JDialog {
     // ═══════════════════════════════════════════════════════════════════
     private void saveEventsFromModel(DefaultListModel<String> model, Equipa equipa, String tipo) {
         if (equipa == null) return;
+        // Equipa oposta (necessária para resolver jogadores de auto-golo)
+        Equipa oposta = (equipa == jogo.getEquipaCasa())
+                ? jogo.getEquipaVisitante() : jogo.getEquipaCasa();
         for (int i = 0; i < model.size(); i++) {
             String entry = model.get(i);
             int minuto = 0; Jogador jogador = null;
+            boolean isAutoGolo = entry.contains("(AG)");
             try {
                 minuto = Integer.parseInt(entry.split("'")[0].trim());
                 String rest = entry.substring(entry.indexOf("—")+1).trim();
                 int num = Integer.parseInt(rest.split("·")[0].trim());
-                for (Jogador j : equipa.getJogadores()) if (j.getNumeroCamisola()==num) { jogador=j; break; }
+                // Auto-golo: o jogador pertence à equipa oposta ao modelo
+                Equipa equipaReal = isAutoGolo ? oposta : equipa;
+                if (equipaReal != null)
+                    for (Jogador j : equipaReal.getJogadores())
+                        if (j.getNumeroCamisola() == num) { jogador = j; break; }
+                // Fallback: pesquisa nas duas equipas se ainda não encontrou
+                if (jogador == null) {
+                    for (Jogador j : equipa.getJogadores())
+                        if (j.getNumeroCamisola() == num) { jogador = j; break; }
+                    if (jogador == null && oposta != null)
+                        for (Jogador j : oposta.getJogadores())
+                            if (j.getNumeroCamisola() == num) { jogador = j; break; }
+                }
             } catch (Exception ignored) {}
-            jogo.addEvento(new EventoPessoal(jogo, minuto, tipo, jogador, tipo));
+            String descricao = isAutoGolo ? tipo + " (AG)" : tipo;
+            jogo.addEvento(new EventoPessoal(jogo, minuto, descricao, jogador, tipo));
         }
     }
 
